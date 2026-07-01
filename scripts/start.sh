@@ -20,7 +20,12 @@ if [ -n "${TAILSCALE_AUTH_KEY:-}" ]; then
   else
     echo "tailscaled binary not found after installation; starting without Tailscale."
   fi
-  sleep 5
+    sleep 5
+
+  echo "===== tailscaled log ====="
+  cat /tmp/tailscaled.log || true
+  echo "=========================="
+
 else
   echo "TAILSCALE_AUTH_KEY is not set; starting without Tailscale."
 fi

@@ -18,6 +18,7 @@ dependencies = [
     "pandas>=2.2",
     "pm4py>=2.7",
     "pytest>=8.0",
+    "valyu>=2.11.0",
 ]
 
 [project.optional-dependencies]
