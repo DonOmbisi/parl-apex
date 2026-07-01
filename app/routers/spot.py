@@ -20,6 +20,7 @@ class SpotDiagnoseRequest(BaseModel):
     context: dict
 
 @router.post("/diagnose", response_model=SpotDiagnosticOutput)
+@router.post("/analyze", response_model=SpotDiagnosticOutput)
 async def diagnose(
     body: SpotDiagnoseRequest,
     db: AsyncSession = Depends(get_db)
