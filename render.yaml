@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: parl-apex
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: bash scripts/start.sh
+    healthCheckPath: /health
+    disk:
+      name: parl-apex-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: APP_ENV
+      - key: DATA_DIR
+      - key: DATABASE_URL
+      - key: GROQ_API_KEY
+      - key: ESPOCRM_BASE_URL
+      - key: ESPOCRM_API_KEY
+      - key: ESPOCRM_TENDER_API_KEY
+      - key: ESPOCRM_FINDING_API_KEY
+      - key: VALYU_API_KEY
+      - key: VALYU_WEBHOOK_SECRET
+      - key: PARL_APEX_WEBHOOK_BASE_URL
+      - key: TAILSCALE_AUTH_KEY

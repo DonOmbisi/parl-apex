@@ -1,0 +1,13 @@
+name: "Nairobi Retail"
+sector: "Retail"
+connectors:
+  - type: "sharepoint"
+    credentials_ref: "NAIROBI_SHAREPOINT_TOKEN"
+    schedule: "0 9 * * 1-5"  # 9 AM Monday-Friday
+  - type: "local_files"
+    credentials_ref: "NAIROBI_LOCAL_PATH"
+    schedule: "*/5 * * * *"  # Every 5 minutes
+agents:
+  - "retail_analyzer"
+  - "inventory_optimizer"
+graph_path: "data/graphs/nairobi_retail.db"

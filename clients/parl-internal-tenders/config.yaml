@@ -1,0 +1,7 @@
+name: "PARL Internal Tenders"
+sector: "Internal Operations"
+connectors:
+  - type: "valyu_tender_research"
+    credentials_ref: "VALYU_API_KEY"
+    schedule: "0 8 * * 1"
+agents: []

@@ -1,0 +1,12 @@
+name: "Mombasa Shipping"
+sector: "Logistics"
+connectors:
+  - type: "email"
+    credentials_ref: "MOMBASA_EMAIL_CREDENTIALS"
+    schedule: "30 8 * * *"  # 8:30 AM daily
+  - type: "local_files"
+    credentials_ref: "MOMBASA_LOCAL_PATH"
+    schedule: "0 */2 * * *"  # Every 2 hours
+agents:
+  - "logistics_tracker"
+graph_path: "data/graphs/mombasa_shipping.db"

@@ -1,0 +1,14 @@
+fastapi>=0.115
+uvicorn[standard]>=0.34
+pydantic-ai>=0.1
+groq>=0.18
+python-dotenv>=1.1
+httpx>=0.28
+sqlalchemy[asyncio]>=2.0
+alembic>=1.14
+aiosqlite>=0.20
+pyyaml>=6.0.3
+apscheduler>=3.11.2
+kuzu>=0.11.3
+pandas>=2.2
+pm4py>=2.7
