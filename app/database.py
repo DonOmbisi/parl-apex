@@ -4,9 +4,9 @@ from collections.abc import AsyncGenerator
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from sqlalchemy.orm import DeclarativeBase
 
-from core.paths import default_sqlite_url
+from core.paths import resolve_sqlite_url
 
-DATABASE_URL = os.getenv("DATABASE_URL") or default_sqlite_url()
+DATABASE_URL = resolve_sqlite_url(os.getenv("DATABASE_URL"))
 
 engine = create_async_engine(DATABASE_URL, echo=False)
 

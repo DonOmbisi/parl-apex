@@ -30,3 +30,25 @@ def default_sqlite_url(filename: str = "app.db") -> str:
     db_path = get_data_dir() / filename
     db_path.parent.mkdir(parents=True, exist_ok=True)
     return f"sqlite+aiosqlite:///{db_path.as_posix()}"
+
+
+def resolve_sqlite_url(database_url: str | None) -> str:
+    if not database_url:
+        return default_sqlite_url()
+
+    sqlite_prefixes = ("sqlite:///", "sqlite+aiosqlite:///")
+    prefix = next((value for value in sqlite_prefixes if database_url.startswith(value)), None)
+    if not prefix:
+        return database_url
+
+    db_location = database_url[len(prefix):]
+    if not db_location or db_location == ":memory:":
+        return database_url
+
+    if db_location.startswith("/"):
+        db_path = Path(db_location)
+    else:
+        db_path = Path(resolve_data_path(db_location))
+
+    db_path.parent.mkdir(parents=True, exist_ok=True)
+    return f"{prefix}{db_path.as_posix()}"
