@@ -95,7 +95,7 @@ def _deadline_is_valid(deadline_str: str) -> bool:
         except ValueError:
             continue
     # If we can't parse it but it's not in the skip list, keep it with a warning
-    print(f"  ⚠  Could not parse deadline '{deadline_str}' — keeping anyway")
+    print(f"  [!] Could not parse deadline '{deadline_str}' — keeping anyway")
     return True
 
 
@@ -111,7 +111,7 @@ for t in tenders:
         usable.append(t)
     else:
         skipped.append(t)
-        print(f"  ✗  Skipped (deadline='{dl}'): {t.get('title', 'NO TITLE')[:80]}")
+        print(f"  [x] Skipped (deadline='{dl}'): {t.get('title', 'NO TITLE')[:80]}")
 
 print(f"\nUsable tenders (valid future deadline): {len(usable)}")
 print(f"Skipped tenders:                        {len(skipped)}")
@@ -138,7 +138,7 @@ if not usable:
     sys.exit(0)
 
 if not ESPOCRM_API_KEY:
-    print("\n⚠  ESPOCRM_TENDER_API_KEY not set — skipping CRM write.")
+    print("\n[!] ESPOCRM_TENDER_API_KEY not set — skipping CRM write.")
     sys.exit(0)
 
 import httpx
@@ -178,14 +178,14 @@ for t in usable:
         )
         if resp.status_code in (200, 201):
             written += 1
-            print(f"  ✓ Written: {payload['name'][:70]}")
+            print(f"  [v] Written: {payload['name'][:70]}")
         else:
             failed += 1
-            print(f"  ✗ Failed ({resp.status_code}): {payload['name'][:70]}")
+            print(f"  [x] Failed ({resp.status_code}): {payload['name'][:70]}")
             print(f"    Response: {resp.text[:200]}")
     except Exception as exc:
         failed += 1
-        print(f"  ✗ Error writing '{payload['name'][:70]}': {exc}")
+        print(f"  [x] Error writing '{payload['name'][:70]}': {exc}")
 
 print(f"\n{'='*60}")
 print(f"Written: {written}  |  Failed: {failed}  |  Skipped: {len(skipped)}")
