@@ -7,7 +7,7 @@ import httpx
 
 logger = logging.getLogger("parl_apex.connectors.espocrm")
 
-ESPOCRM_TENDER_ENTITY = "Tender"
+ESPOCRM_TENDER_ENTITY = "CTender"
 ESPOCRM_FINDING_ENTITY = "CFinding"
 ESPOCRM_ACCOUNT_ENTITY = "Account"
 HUMAN_OWNED_FIELDS = {"status", "assignedUserId"}

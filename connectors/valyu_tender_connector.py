@@ -19,10 +19,14 @@ from valyu import Valyu
 # ---------------------------------------------------------------------------
 
 TENDER_RESEARCH_QUERY = (
-    "Find current public tenders in East and Central Africa relevant to "
-    "statistical and qualitative research tools, CRM/ERP systems, cybersecurity, "
-    "biometric identity verification, and AI-content-detection software. Return "
-    "structured tender records."
+    "Find current open government and NGO tenders in Kenya, Uganda, Tanzania, Rwanda, and Ethiopia "
+    "issued in the last 30 days, specifically for: statistical software (SPSS, Stata, NVivo, MAXQDA), "
+    "data analytics platforms, cybersecurity solutions, CRM/ERP implementation, and biometric identity "
+    "verification. For each tender include the official reference number, issuing organization, exact "
+    "submission deadline, estimated contract value, and direct URL to the official tender notice on "
+    "government procurement portals (tenders.go.ke, icta.go.ke, treasury.go.ke, egpkenya.go.ke, "
+    "PPDA Uganda) or international donor portals (UNDP, World Bank, USAID). "
+    "Exclude tenders whose deadlines have already passed."
 )
 
 TENDER_SCHEMA = {
@@ -81,7 +85,7 @@ async def create_tender_research_task(webhook_url: str) -> str:
     def _call() -> str:
         response = client.deepresearch.create(
             query=TENDER_RESEARCH_QUERY,
-            mode="fast",
+            mode="standard",
             webhook_url=webhook_url,
             output_formats=[{
                 "type": "array",
