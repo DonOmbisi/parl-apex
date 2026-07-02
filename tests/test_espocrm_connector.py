@@ -92,7 +92,7 @@ async def test_upsert_tender_record_creates_new_record():
     assert outcome == "created"
     method, url, payload = FakeEspoClient.calls[-1]
     assert method == "post"
-    assert url == "https://crm.example.test/api/v1/Tender"
+    assert url == "https://crm.example.test/api/v1/CTender"
     assert payload["status"] == "New"
     assert payload["referenceNumber"] == "REF-001"
     assert payload["winLikelihoodScore"] == 82
@@ -110,7 +110,7 @@ async def test_upsert_tender_record_patches_scores_when_description_changes():
     assert outcome == "updated"
     method, url, payload = FakeEspoClient.calls[-1]
     assert method == "patch"
-    assert url == "https://crm.example.test/api/v1/Tender/existing-id"
+    assert url == "https://crm.example.test/api/v1/CTender/existing-id"
     assert payload["description"] == "Procure endpoint protection and security monitoring."
     assert payload["winLikelihoodScore"] == 82
     assert payload["winLikelihoodReasoning"] == "Strong category and sector fit."
