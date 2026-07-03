@@ -19,6 +19,8 @@ dependencies = [
     "pm4py>=2.7",
     "pytest>=8.0",
     "valyu>=2.11.0",
+    "python-docx>=1.2.0",
+    "docxtpl>=0.20.2",
 ]
 
 [project.optional-dependencies]

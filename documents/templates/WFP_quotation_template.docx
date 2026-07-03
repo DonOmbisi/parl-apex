@@ -1,0 +1,19 @@
+# PLACEHOLDER: Replace this file with the actual WFP quotation template (WFP_quotation_template.docx)
+# 
+# The template should contain the following placeholders that will be replaced:
+# - {{ line_item_name }} - Opportunity name or product name
+# - {{ total }} - Formatted total amount
+# - World Food Program WFP - Will be replaced with account name
+# - Zaccheus Ndirima - Will be replaced with contact name
+# - Mary Nthambi - Will be replaced with contact name
+# - {{ opportunity_name }} - Opportunity name
+# - {{ account_name }} - Account name
+# - {{ billing_address }} - Account billing address
+# - {{ contact_name }} - Contact full name
+# - {{ contact_email }} - Contact email address
+# - {{ assigned_user }} - Assigned user name
+# - {{ description }} - Opportunity description
+# - {{ quotation_date }} - Current date
+# - {{ valid_until }} - Valid until date (30 days from today)
+# - {{ close_date }} - Opportunity close date
+# - {{ quotation_number }} - Generated quotation number

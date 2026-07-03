@@ -12,3 +12,4 @@ apscheduler>=3.11.2
 kuzu>=0.11.3
 pandas>=2.2
 pm4py>=2.7
+python-docx>=1.1

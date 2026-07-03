@@ -17,6 +17,7 @@ from app.routers.clients import router as clients_router
 from app.routers.query import router as query_router
 from app.routers.research import router as research_router
 from app.routers.tender_webhook import router as tender_webhook_router
+from app.routers.quotations import router as quotations_router
 from core.scheduler import start_scheduler, shutdown_scheduler
 
 logging.basicConfig(level=logging.INFO)
@@ -66,4 +67,5 @@ app.include_router(clients_router)
 app.include_router(query_router)
 app.include_router(research_router)
 app.include_router(tender_webhook_router)
+app.include_router(quotations_router)
 
